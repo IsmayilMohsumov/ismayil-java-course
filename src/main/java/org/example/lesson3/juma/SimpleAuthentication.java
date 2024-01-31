@@ -18,8 +18,8 @@ import java.util.Scanner;
 
     }
     void login(){
-        String login = "Juma";
-        String password = "Juma0404";
+        String LOGIN = "Juma";
+        String PASSWORD = "Juma0404";
 
         Scanner sc = new Scanner(System.in);
 
@@ -30,13 +30,13 @@ import java.util.Scanner;
 
 
 
-        if((userLg.equals(login) ) && (userPsw.equals(password) )){
+        if((userLg.equals(LOGIN) ) && (userPsw.equals(PASSWORD) )){
             System.out.println("Welcome....");
 
-        } else if ( (userLg.equals(login))  ) {
+        } else if ( (userLg.equals(LOGIN))  ) {
             System.out.println("Incorrect password. Access denied.");
 
-        } else if ( (userPsw.equals(password)) ){
+        } else if ( (userPsw.equals(PASSWORD)) ){
             System.out.println("Incorrect username. Access denied.");
 
         } else {
