@@ -26,12 +26,9 @@ class CalculatorDemo{
 public class Calculator {
 
 
-    public Calculator{
+    public Calculator(){
      double num1 = 5;
      double num2 = 6;
-    }
-    private Calculator{
-        String calculatorName = "Hello";
     }
     public Calculator(int num2){
      num2 = 6;
