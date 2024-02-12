@@ -7,6 +7,7 @@ public class Loops {
     public static void main(String[] args) {
 
         String reversedString = "";
+
         Scanner sc = new Scanner(System.in);
         System.out.println("Please enter string:"); //Salam
         String userInput = sc.nextLine();
