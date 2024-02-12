@@ -6,18 +6,10 @@ public class Loops {
 
     public static void main(String[] args) {
 
-        String reversedString = "";
-
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Please enter string:");
-        String userInput = sc.nextLine();
-        int index = userInput.length();
-
-        while (index > 0){
-            index--;
-            reversedString = reversedString + userInput.charAt(index);
+        for (int i=0; i<0; i++){
+            System.out.println("Hello");
         }
-        System.out.println(reversedString.toUpperCase());
+
 
 
     }

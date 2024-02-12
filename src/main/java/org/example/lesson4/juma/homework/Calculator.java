@@ -3,7 +3,7 @@ package org.example.lesson4.juma.homework;
 import java.util.Scanner;
 class CalculatorDemo{
     public static void main(String[] args) {
-        Calculator calculator = new Calculator();
+        Calculator calculator = new Calculator(2);
 
         double three = calculator.add(3.2, 3.5, 4.2);
         System.out.println(three);
@@ -26,13 +26,7 @@ class CalculatorDemo{
 public class Calculator {
 
 
-    public Calculator{
-     double num1 = 5;
-     double num2 = 6;
-    }
-    private Calculator{
-        String calculatorName = "Hello";
-    }
+
     public Calculator(int num2){
      num2 = 6;
 
