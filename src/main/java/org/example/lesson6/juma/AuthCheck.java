@@ -15,14 +15,19 @@ public class AuthCheck {
 
 
 
- public String encryptThePassword(String password) {
-
-        StringBuilder encryptedText = new StringBuilder(new StringBuilder(password).reverse().toString());
-
-        String text = encryptedText + "Xyz123";
-        return text;
+ public String encryptThePassword(String password ) { //cuma123
 
 
+/*    StringBuilder encryptedText = new StringBuilder(new StringBuilder(password).reverse().toString());
+      String text = encryptedText + "Xyz123";
+ */
+
+     String reversedString = "";
+     int index = password.length() -1;
+     for (; index >= 0 ; index--){
+            reversedString = reversedString + password.charAt(index);
+        }
+     return reversedString   + "Xyz123";
     }
 
 }
