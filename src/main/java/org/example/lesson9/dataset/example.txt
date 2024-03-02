@@ -1,0 +1,6 @@
+John Doe,30,Male
+Jane Smith,25,Female
+Bob Johnson,35,Male
+Alice Williams,28,Female
+Mark Davis,40,Male
+Emily White,22,Female

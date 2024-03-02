@@ -48,6 +48,14 @@ public class Main {
                     userPassword = scanner.next();
 
                     System.out.println(authCheck.checkIfLoginIsValid(userInput));
+                    Boolean isValid = authCheck.checkIfLoginIsValid(userInput);
+                    while(!isValid){
+                        System.err.println("Please enter @gmail.com:");
+                        userInput = scanner.next();
+                        if (authCheck.checkIfLoginIsValid(userInput)){
+                            isValid=true;
+                        }
+                    }
                     System.out.println(authCheck.encryptThePassword(userPassword));
                     User user = new User(userInput, userPassword);
                     System.out.println("User's login is : "+user.login);
