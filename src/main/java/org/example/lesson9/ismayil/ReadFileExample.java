@@ -5,24 +5,30 @@ import java.io.IOException;
 
 public class ReadFileExample {
 
-    public static void main(String[] args) {
-        String filePath = "C:\\Users\\mohsu\\Downloads\\Files from HP laptop\\IMPORTANT FILES\\IMPORTANT FILES\\Course Ismayil\\repo-fixed\\ismayil-java-course\\src\\main\\java\\org\\example\\lesson9\\dataset\\example.txt";
-
-        try {
-            FileReader fileReader = new FileReader(filePath);
-            BufferedReader bufferedReader = new BufferedReader(fileReader);
-
+    public static void readFile(String filePath, String targetUserId)
+            throws IOException {
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String line;
-            while ((line = bufferedReader.readLine()) != null) {
-                System.out.println(line);
+            while ((line = reader.readLine()) != null) {
+                String[] userData = line.split(" ");
+
+                //Check out picture in package lesson9->dataset-> userDataVisual.png
+
+                // !JUMA TODO: Check if ID is just a number
+                //          TODO: If not throw UserIdIsNotNumberException(message)
+
+
+                // !MAGA TODO: Check if NAME is more than two characters
+                //          TODO: If not throw UserIdIsNotNumberException(message)
+
+
+                // !KAMIL TODO: Check if user ID matches the target ID
+                //         TODO: If not throw UserIdIsNotNumberException(message)
+
             }
 
-            bufferedReader.close();
-            fileReader.close();
-        } catch (IOException e) {
-            // Handle IOException if there is an issue with file reading
-            System.err.println("Error reading from the file: " + e.getMessage());
-            e.printStackTrace(); // Print the stack trace for debugging
+
         }
     }
+
 }
