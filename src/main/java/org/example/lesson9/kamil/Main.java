@@ -1,6 +1,8 @@
 package org.example.lesson9.kamil;
 
 
+import org.example.lesson9.exceptions.UserIdIsNotNumberException;
+
 import java.io.IOException;
 
 import static org.example.lesson9.ismayil.ReadFileExample.readFile;
@@ -24,6 +26,9 @@ public class Main {
             System.err.println("Error reading from the file: " + e.getMessage());
             e.printStackTrace();
         } //TODO: add catch block for UsernameIsLessThanTwoWordsException
+        catch (UserIdIsNotNumberException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 

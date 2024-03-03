@@ -9,8 +9,8 @@ import java.util.Scanner;
 public class ReadFileExample {
 
 
-    public static void readFile(String filePath, String targetUserId)  throws IOException {
-        UserIdIsNotNumberException sd = new UserIdIsNotNumberException ();
+    public static void readFile(String filePath, String targetUserId)  throws IOException,UserIdIsNotNumberException {
+
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String line;
             while ((line = reader.readLine()) != null) {
@@ -20,15 +20,14 @@ public class ReadFileExample {
 
 
                 try {
-                    System.out.println(userData[0]);
-                    String sayi = userData[0];
+//                    System.out.println(userData[0]);
+                    String ids = userData[0];
+                    System.out.println(ids);
+                    int id =Integer.parseInt(ids);
                 } catch (Exception e) {
-                    System.out.println("Error");
+                    throw new UserIdIsNotNumberException(userData[0]+" is not number");
                 }
             }
-                // !JUMA TODO: Check if ID is just a number
-                //          TODO: If not throw UserIdIsNotNumberException(message)
-
 
                 // !MAGA TODO: Check if NAME is more than two characters
                 //          TODO: If not throw UserIdIsNotNumberException(message)

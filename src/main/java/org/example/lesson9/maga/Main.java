@@ -27,6 +27,9 @@ public class Main {
             System.err.println("Error reading from the file: " + e.getMessage());
             e.printStackTrace();
         }  //TODO: add catch block for UserNotFoundException
+        catch (UserIdIsNotNumberException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 

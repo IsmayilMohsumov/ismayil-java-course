@@ -8,5 +8,6 @@ public class UserIdIsNotNumberException extends Exception {
     }
     public UserIdIsNotNumberException(String message) {
         super(message);
+
     }
 }
