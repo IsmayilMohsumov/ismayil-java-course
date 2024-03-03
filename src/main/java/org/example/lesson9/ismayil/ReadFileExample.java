@@ -1,5 +1,7 @@
 package org.example.lesson9.ismayil;
 import org.example.lesson9.exceptions.UserIdIsNotNumberException;
+import org.example.lesson9.exceptions.UserNotFoundException;
+import org.example.lesson9.exceptions.UsernameIsLessThanTwoWordsException;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -9,12 +11,14 @@ import java.util.Scanner;
 public class ReadFileExample {
 
 
-    public static void readFile(String filePath, String targetUserId)  throws IOException,UserIdIsNotNumberException {
+    public static void readFile(String filePath, int targetUserId)  throws IOException,UserIdIsNotNumberException, UsernameIsLessThanTwoWordsException,UserNotFoundException{
 
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] userData = line.split(" ");
+
+
 
                 //Check out picture in package lesson9->dataset-> userDataVisual.png
 
@@ -22,19 +26,36 @@ public class ReadFileExample {
                 try {
 //                    System.out.println(userData[0]);
                     String ids = userData[0];
-                    System.out.println(ids);
+                    System.out.print(ids+" ");
                     int id =Integer.parseInt(ids);
                 } catch (Exception e) {
                     throw new UserIdIsNotNumberException(userData[0]+" is not number");
                 }
+
+
+                String name =userData[1];
+                System.out.println(name);
+                if (name.length()<=2){
+                    throw new UsernameIsLessThanTwoWordsException(name+ " is less than 2 chars");
+
+                }
+
+
+
+                String idFromDatabase=userData[0];
+
+                Integer id=Integer.parseInt(idFromDatabase);
+                if(id==targetUserId){
+                    System.err.println(userData[0]+userData[1]+userData[2]);
+                    return;
+
+
+                }
+
             }
-
-                // !MAGA TODO: Check if NAME is more than two characters
-                //          TODO: If not throw UserIdIsNotNumberException(message)
+            throw new UserNotFoundException(targetUserId+"Id is not matches");
 
 
-                // !KAMIL TODO: Check if user ID matches the target ID
-                //         TODO: If not throw UserIdIsNotNumberException(message)
 
             }
 

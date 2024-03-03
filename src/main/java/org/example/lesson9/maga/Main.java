@@ -5,6 +5,7 @@ import org.example.lesson9.exceptions.UserNotFoundException;
 import org.example.lesson9.exceptions.UsernameIsLessThanTwoWordsException;
 
 import java.io.IOException;
+import java.util.Scanner;
 
 import static org.example.lesson9.ismayil.ReadFileExample.readFile;
 
@@ -15,19 +16,25 @@ public class Main {
         // Go to lesson9 -> exceptions package -> edit UserNotFoundException (take a look at ExampleCustomException)
 
         // REPLACE IT WITH YOUR PATH:
-        String filePath = "C:\\YOUR-PATH-HERE\\repo-fixed\\ismayil-java-course\\src\\main\\java\\org\\example\\lesson9\\dataset\\users.txt";
+        String filePath = "C:\\Users\\User\\Desktop\\ismayil 2 new rep\\ismayil-java-course\\src\\main\\java\\org\\example\\lesson9\\dataset\\users.txt";
 
         // Get it from SCANNER:
         String targetUserId = "7A";
 
         try {
             //go to below method
-            readFile(filePath, targetUserId);
+            System.out.println("Add user id");
+
+            Scanner sc=new Scanner(System.in);
+
+            readFile(filePath, sc.nextInt());
         } catch (IOException e) {
             System.err.println("Error reading from the file: " + e.getMessage());
             e.printStackTrace();
         }  //TODO: add catch block for UserNotFoundException
-        catch (UserIdIsNotNumberException e) {
+        catch (UserIdIsNotNumberException | UsernameIsLessThanTwoWordsException e) {
+            throw new RuntimeException(e);
+        } catch (UserNotFoundException e) {
             throw new RuntimeException(e);
         }
     }

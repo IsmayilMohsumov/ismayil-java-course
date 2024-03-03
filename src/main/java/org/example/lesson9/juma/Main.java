@@ -26,13 +26,15 @@ public class Main {
                 //go to below method
 
 
-                readFile(filePath,"10");
+                readFile(filePath,10);
 
             } catch (IOException e) {
                 System.err.println("Error reading from the file: " + e.getMessage());
                 e.printStackTrace();
             } //TODO: add catch block for UserIdIsNotNumberException
             catch (UserIdIsNotNumberException e) {
+                throw new RuntimeException(e);
+            } catch (UsernameIsLessThanTwoWordsException | UserNotFoundException e) {
                 throw new RuntimeException(e);
             }
     }

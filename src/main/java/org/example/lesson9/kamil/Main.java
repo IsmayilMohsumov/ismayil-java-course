@@ -2,6 +2,8 @@ package org.example.lesson9.kamil;
 
 
 import org.example.lesson9.exceptions.UserIdIsNotNumberException;
+import org.example.lesson9.exceptions.UserNotFoundException;
+import org.example.lesson9.exceptions.UsernameIsLessThanTwoWordsException;
 
 import java.io.IOException;
 
@@ -21,12 +23,14 @@ public class Main {
 
         try {
             //go to below method
-            readFile(filePath, targetUserId);
+            readFile(filePath, 6);
         } catch (IOException e) {
             System.err.println("Error reading from the file: " + e.getMessage());
             e.printStackTrace();
         } //TODO: add catch block for UsernameIsLessThanTwoWordsException
-        catch (UserIdIsNotNumberException e) {
+        catch (UserIdIsNotNumberException | UsernameIsLessThanTwoWordsException e) {
+            throw new RuntimeException(e);
+        } catch (UserNotFoundException e) {
             throw new RuntimeException(e);
         }
     }
