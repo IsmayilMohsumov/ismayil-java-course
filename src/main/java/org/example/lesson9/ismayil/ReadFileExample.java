@@ -1,12 +1,16 @@
 package org.example.lesson9.ismayil;
+import org.example.lesson9.exceptions.UserIdIsNotNumberException;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Scanner;
 
 public class ReadFileExample {
 
-    public static void readFile(String filePath, String targetUserId)
-            throws IOException {
+
+    public static void readFile(String filePath, String targetUserId)  throws IOException {
+        UserIdIsNotNumberException sd = new UserIdIsNotNumberException ();
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String line;
             while ((line = reader.readLine()) != null) {
@@ -14,6 +18,14 @@ public class ReadFileExample {
 
                 //Check out picture in package lesson9->dataset-> userDataVisual.png
 
+
+                try {
+                    System.out.println(userData[0]);
+                    String sayi = userData[0];
+                } catch (Exception e) {
+                    System.out.println("Error");
+                }
+            }
                 // !JUMA TODO: Check if ID is just a number
                 //          TODO: If not throw UserIdIsNotNumberException(message)
 
@@ -29,6 +41,8 @@ public class ReadFileExample {
 
 
         }
-    }
+
+
+
 
 }
